@@ -52,10 +52,10 @@ function App() {
     }
 
     if (destination.droppableId === 'itemsToBuy') {
-      itemsToBuy.splice(destination.index, 0, itemToPlace);
+      if (itemToPlace) itemsToBuy.splice(destination.index, 0, itemToPlace);
     }
     if (destination.droppableId === 'itemsBought') {
-      itemsBought.splice(destination.index, 0, itemToPlace);
+      if (itemToPlace) itemsBought.splice(destination.index, 0, itemToPlace);
     }
 
     setItems(itemsToBuy);

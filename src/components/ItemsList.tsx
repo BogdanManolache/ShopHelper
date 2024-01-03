@@ -59,7 +59,7 @@ export default function ItemsList({
                   index={i}
                   item={item}
                   items={items}
-                  setBoughtItems={setBoughtItems}
+                  setItems={setBoughtItems}
                 />
               ))}
               {provided.placeholder}
