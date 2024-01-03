@@ -10,12 +10,7 @@ type SingleItemProps = {
   index: number;
 };
 
-export default function SingleItem({
-  item,
-
-  setItems,
-  index,
-}: SingleItemProps) {
+export default function SingleItem({ item, setItems, index }: SingleItemProps) {
   const [isEditting, setIsEditting] = useState<boolean>(false);
   const [itemText, setItemText] = useState<string>(item.item);
 
@@ -31,9 +26,12 @@ export default function SingleItem({
 
   function handleEdit(e: React.FormEvent, id: number) {
     e.preventDefault();
+
     setItems(prevItems =>
       prevItems.map(item =>
-        item.id === id ? { ...item, item: itemText } : item,
+        item.id === id
+          ? { ...item, item: itemText[0].toUpperCase() + itemText.slice(1) }
+          : item,
       ),
     );
     setIsEditting(false);
@@ -65,6 +63,7 @@ export default function SingleItem({
           >
             {isEditting ? (
               <input
+                required
                 ref={inputRef}
                 type="text"
                 className="p-1 text-sm focus:outline-none"

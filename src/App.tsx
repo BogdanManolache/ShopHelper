@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Input from './components/Input';
 import { Item } from './model';
@@ -7,8 +7,22 @@ import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 
 function App() {
   const [item, setItem] = useState<string>('');
-  const [items, setItems] = useState<Item[]>([]);
-  const [boughtItems, setBoughtItems] = useState<Item[]>([]);
+  const [items, setItems] = useState<Item[]>(
+    JSON.parse(localStorage.getItem('items') as string),
+  );
+  const [boughtItems, setBoughtItems] = useState<Item[]>(
+    JSON.parse(localStorage.getItem('boughtItems') as string),
+  );
+
+  console.log(boughtItems);
+
+  useEffect(
+    function () {
+      localStorage.setItem('items', JSON.stringify(items));
+      localStorage.setItem('boughtItems', JSON.stringify(boughtItems));
+    },
+    [items, boughtItems],
+  );
 
   function handleAdd(e: React.FormEvent) {
     e.preventDefault();
@@ -44,22 +58,29 @@ function App() {
     if (source.droppableId === 'itemsToBuy') {
       itemToPlace = itemsToBuy[source.index];
       itemsToBuy.splice(source.index, 1);
+
+      if (destination.droppableId === 'itemsToBuy') {
+        itemsToBuy.splice(destination.index, 0, itemToPlace);
+      } else {
+        itemsBought.splice(destination.index, 0, itemToPlace);
+      }
     }
 
     if (source.droppableId === 'itemsBought') {
       itemToPlace = itemsBought[source.index];
       itemsBought.splice(source.index, 1);
-    }
 
-    if (destination.droppableId === 'itemsToBuy') {
-      if (itemToPlace) itemsToBuy.splice(destination.index, 0, itemToPlace);
-    }
-    if (destination.droppableId === 'itemsBought') {
-      if (itemToPlace) itemsBought.splice(destination.index, 0, itemToPlace);
+      if (destination.droppableId === 'itemsToBuy') {
+        itemsToBuy.splice(destination.index, 0, itemToPlace);
+      } else {
+        itemsBought.splice(destination.index, 0, itemToPlace);
+      }
     }
 
     setItems(itemsToBuy);
+    localStorage.setItem('items', JSON.stringify(itemsToBuy));
     setBoughtItems(itemsBought);
+    localStorage.setItem('boughtItems', JSON.stringify(itemsBought));
   }
 
   return (
