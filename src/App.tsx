@@ -8,10 +8,10 @@ import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 function App() {
   const [item, setItem] = useState<string>('');
   const [items, setItems] = useState<Item[]>(
-    JSON.parse(localStorage.getItem('items') as string),
+    JSON.parse(localStorage.getItem('items') as string) || [],
   );
   const [boughtItems, setBoughtItems] = useState<Item[]>(
-    JSON.parse(localStorage.getItem('boughtItems') as string),
+    JSON.parse(localStorage.getItem('boughtItems') as string) || [],
   );
 
   console.log(boughtItems);
