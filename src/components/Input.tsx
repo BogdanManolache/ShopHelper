@@ -22,13 +22,13 @@ export default function Input({ item, setItem, handleAdd }: InputProps) {
         type="text"
         placeholder="Enter a product..."
         required
-        className="w-full rounded-full px-5 py-4 text-xl shadow-inner focus:shadow-3xl focus:outline-none"
+        className="w-full rounded-full px-3 py-2 text-lg shadow-inner focus:shadow-3xl focus:outline-none sm:px-5 sm:py-4 sm:text-xl"
         value={item}
         onChange={e => setItem(e.target.value)}
       />
       <button
         type="submit"
-        className="absolute right-1 m-1 h-12 w-12 rounded-full bg-blue-200 font-bold uppercase text-slate-700 shadow-sm duration-300 hover:bg-blue-300 hover:shadow-md active:scale-125 active:shadow-sm"
+        className="absolute right-0.5 m-1 h-8 w-8 rounded-full bg-blue-200 text-xs font-bold uppercase text-slate-700 shadow-sm duration-300 hover:bg-blue-300 hover:shadow-md active:scale-125 active:shadow-sm sm:right-1 sm:h-12 sm:w-12 sm:text-lg"
       >
         ADD
       </button>

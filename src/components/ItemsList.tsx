@@ -16,7 +16,7 @@ export default function ItemsList({
   setBoughtItems,
 }: ItemsListProps) {
   return (
-    <div className="mb-4 mt-10 flex w-10/12 grow items-start justify-between gap-2 overflow-y-auto overflow-x-hidden">
+    <div className="mb-4 mt-10 flex w-10/12 grow flex-col items-start justify-between gap-2 overflow-y-auto overflow-x-hidden sm:flex-row">
       <Droppable droppableId="itemsToBuy">
         {provided => (
           <div
