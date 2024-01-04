@@ -14,8 +14,6 @@ function App() {
     JSON.parse(localStorage.getItem('boughtItems') as string) || [],
   );
 
-  console.log(boughtItems);
-
   useEffect(
     function () {
       localStorage.setItem('items', JSON.stringify(items));
