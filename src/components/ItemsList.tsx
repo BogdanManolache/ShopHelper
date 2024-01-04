@@ -22,7 +22,7 @@ export default function ItemsList({
           <div
             ref={provided.innerRef}
             {...provided.droppableProps}
-            className="flex-1 self-stretch rounded-md bg-red-200 p-4"
+            className="flex-1 self-stretch rounded-md bg-red-400 p-4"
           >
             <h2 className="text-md mb-4 text-center font-bold sm:text-xl">
               To buy
@@ -47,7 +47,7 @@ export default function ItemsList({
           <div
             ref={provided.innerRef}
             {...provided.droppableProps}
-            className="flex-1 self-stretch rounded-md bg-green-200 p-4"
+            className="flex-1 self-stretch rounded-md bg-green-400 p-4"
           >
             <h2 className="text-md mb-4 text-center font-bold sm:text-xl">
               Already bought

@@ -28,7 +28,7 @@ export default function Input({ item, setItem, handleAdd }: InputProps) {
       />
       <button
         type="submit"
-        className="absolute right-0.5 m-1 h-8 w-8 rounded-full bg-blue-200 text-xs font-bold uppercase text-slate-700 shadow-sm duration-300 hover:bg-blue-300 hover:shadow-md active:scale-125 active:shadow-sm sm:right-1 sm:h-12 sm:w-12 sm:text-lg"
+        className="absolute right-0.5 m-1 h-8 w-8 rounded-full bg-red-500 text-xs font-bold uppercase text-slate-50 shadow-sm duration-300 hover:bg-red-600 hover:shadow-md active:scale-125 active:shadow-sm sm:right-1 sm:h-12 sm:w-12 sm:text-lg"
       >
         ADD
       </button>

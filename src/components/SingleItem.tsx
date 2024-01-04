@@ -55,7 +55,7 @@ export default function SingleItem({ item, setItems, index }: SingleItemProps) {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
-          className=" rounded-md bg-[url('https://img.freepik.com/free-photo/crumpled-yellow-paper-background-close-up_60487-2390.jpg?size=626&ext=jpg')] p-2 duration-300 hover:scale-105 hover:shadow-md sm:p-3"
+          className=" rounded-md bg-gradient-to-r from-blue-50 to-blue-200 p-2 duration-300 hover:scale-105 hover:shadow-md sm:p-3"
         >
           <form
             className="flex items-center justify-between"
